@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "target": "ES6",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        "sourceRoot": "."
+    },
+    "include": [
+        "src/**/*",
+        "test/**/*",
+        "apitest/**/*"
+    ]
+}

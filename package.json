@@ -1,0 +1,30 @@
+{
+  "name": "swagger-test",
+  "version": "0.0.1",
+  "description": "autogenerate mocha-tests from a swagger spec",
+  "main": "dist/src/app.js",
+  "scripts": {
+    "watch": "tsc -w",
+    "test": "DEBUG=* DEBUG_DEPTH=null mocha -u tdd --timeout 999999 --colors ./dist/test --recursive",
+    "apitest": "mocha ./dist/apitest --recursive",
+    "apitest-debug": "DEBUG=* DEBUG_DEPTH=null mocha ./dist/apitest --recursive"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@types/assert": "0.0.31",
+    "@types/commander": "^2.9.2",
+    "@types/node": "^8.0.30",
+    "@types/ramda": "^0.24.13",
+    "commander": "^2.11.0",
+    "debug-trace-fn": "^0.0.3",
+    "mocha": "^3.5.0",
+    "mocha-typescript": "^1.1.9",
+    "ramda": "^0.24.1",
+    "request": "^2.82.0",
+    "request-promise-native": "^1.0.5",
+    "supertest": "^3.0.0",
+    "typescript": "^2.4.2",
+    "yamljs": "^0.3.0"
+  }
+}
