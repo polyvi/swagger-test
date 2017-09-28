@@ -16,15 +16,15 @@ class CompilerTest {
 
     @test("x-test to url")
     testXTest2url() {
-        assert.equal(xTest2url('/question', {
+        assert.equal(xTest2url('/user', {
             parameters: {
                 page_index: 1
             }
-        }), "/question?page_index=1")
+        }), "/user?page_index=1")
     }
 
     @test("replaceUrlParameters")
     testReplaceUrlParameters() {
-        assert.equal(replaceUrlParameters('/question/{id}', { id: 1 }), "/question/1")
+        assert.equal(replaceUrlParameters('/user/{id}', { id: 1 }), "/user/1")
     }
 }

@@ -20,6 +20,7 @@
     "debug-trace-fn": "^0.0.3",
     "mocha": "^3.5.0",
     "mocha-typescript": "^1.1.9",
+    "moment": "^2.18.1",
     "ramda": "^0.24.1",
     "request": "^2.82.0",
     "request-promise-native": "^1.0.5",

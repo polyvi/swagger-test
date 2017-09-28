@@ -7,10 +7,18 @@ import { xTest2url, xTest2string } from './testcase'
 
 import * as fs from 'fs'
 
+const moment = require('moment')
+
 const handleMethod = R.compose(
     R.reduce(
-        (acc, [key, value]) =>
-            R.merge(acc, value['x-test']),
+        (acc, [responseCode, responseBody]) =>
+            R.merge(acc,
+                R.mapObjIndexed(
+                    (testcaseBody, testcaseName, obj) =>
+                        R.merge(testcaseBody, { responseCode: responseCode }),
+                    responseBody['x-test']
+                )
+            ),
         {}),
     R.toPairs,
     R.prop('responses')
@@ -53,8 +61,10 @@ class TestSuite${path2identifier(path)} {
 
 const suite2file = (server, before, beforeEach, path, body) => {
     const fd = fs.openSync(`${__dirname}/../../apitest/${path2identifier(path)}.test.ts`, 'w')
+    console.log(`${path2identifier(path)}.test.ts`)
     fs.writeSync(fd,
-        `import * as assert from "assert"
+        `//generated time: ${moment().format()}
+import * as assert from "assert"
 import { suite, test } from "mocha-typescript"
 const request = require("supertest")("${server}")
 

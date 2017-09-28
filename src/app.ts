@@ -18,5 +18,5 @@ request(program.api)
         compile(YAML.parse(spec), program.server)
     })
     .catch(err => {
-        trace(err)
+        console.log(err)
     })

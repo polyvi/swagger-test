@@ -71,18 +71,14 @@ paths:
           x-test:
             # 'getUserList' is the name of this testcase:  
             getUserList:
-              before: |
-                console.log('just a test!')
               parameters:
                 page_index: 1
                 page_size: 20
-              after: |
-                assert.equal(res.body[0].name, "Andy")
 
   '/user/{id}':
-    get:
-      operationId: getUser
-      description: get an user object
+    put:
+      operationId: editUser
+      description: edit an user object
       parameters:
         - name: id
           in: path
@@ -99,9 +95,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
           x-test:
-            getQuestionById:
+            editUser:
+              headers: |
+                "Authorization": "Bearer " + token
+              before: |
+                console.log('just a test!')
               uri-parameters: 
                 id: 1
+              body: 
+                name: mark
+                email: mark@gmail.com
               after: |
                 assert.equal(res.body.name, "Andy")
 ```

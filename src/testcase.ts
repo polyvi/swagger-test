@@ -28,10 +28,14 @@ const xTest2string = (path, [key, value]) =>
     `
     @test("${key}")
     async ${key} () {
+        //before
         ${value['before'] || ''}
+        //request
         let res = await request
             .${value['method']}("${xTest2url(path, value)}")
             ${body2string(value['body'])}
+        assert.equal(${value['responseCode']}, res.statusCode)
+        //after    
         ${value['after'] || ''}
     }
 `

@@ -7,6 +7,6 @@ import { path2identifier } from "../src/suite"
 class CompilerTest {
     @test("path to identifier")
     testPath2identifier() {
-        assert.equal(path2identifier('/question/{id}/follow'), '_question__id__follow')
+        assert.equal(path2identifier('/user/{id}/follow'), '_user__id__follow')
     }
 }
