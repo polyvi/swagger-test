@@ -1,6 +1,3 @@
-import { Trace } from 'debug-trace-fn'
-const trace = Trace('trace')
-
 import * as R from 'ramda'
 
 const parameters2queryString = params =>

@@ -1,6 +1,4 @@
 import * as program from 'commander'
-import { Trace } from 'debug-trace-fn'
-const trace = Trace('trace')
 import { compile } from './spec'
 
 import * as request from 'request-promise-native'

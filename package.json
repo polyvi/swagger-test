@@ -17,7 +17,7 @@
     "@types/node": "^8.0.30",
     "@types/ramda": "^0.24.13",
     "commander": "^2.11.0",
-    "debug-trace-fn": "^0.0.3",
+    "debug-trace-fn": "^0.1.0",
     "mocha": "^3.5.0",
     "mocha-typescript": "^1.1.9",
     "moment": "^2.18.1",
