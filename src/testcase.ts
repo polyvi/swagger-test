@@ -31,7 +31,7 @@ const xTest2string = (path, [key, value]) =>
         let res = await request
             .${value['method']}("${xTest2url(path, value)}")
             ${body2string(value['body'])}
-        assert.equal(${value['responseCode']}, res.statusCode)
+        assert.equal(res.statusCode, ${value['responseCode']})
         //after    
         ${value['after'] || ''}
     }

@@ -32,7 +32,7 @@ x-test:
                     name: "Andy",
                     password: "12345678"
                 })
-            assert.equal(200, res.statusCode)
+            assert.equal(res.statusCode, 200)
             token = res.body.token
         }
 
