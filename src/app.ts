@@ -9,7 +9,7 @@ const YAML = require('yamljs')
 program
     .version('0.0.1')
     .option('-a,--api <value>', 'Url of spec-host')
-    .option('-f --file <value>', 'local file path')
+    .option('-f --file <value>', 'Local file path')
     .option('-s,--server <value>', 'Root url of api-server')
     .parse(process.argv)
 
