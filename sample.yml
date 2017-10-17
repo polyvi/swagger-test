@@ -1,20 +1,3 @@
-# swagger-test
-autogenerate mocha-tests from a swagger spec
-
-## Usage
-```bash
-docker pull luckymark/swagger-test
-docker run -it -v ${PWD}/apitest:/home/apitest luckymark/swagger-test node ./dist/src/app.js -a ${url-of-spec} -s ${url-root-of-api-server} -f ${localfile}
-
-ls ./apitest
-```
-then you can run test:
-```bash
-docker run -it -v ${PWD}/apitest:/home/apitest luckymark/swagger-test npm run apitest
-```
-
-## how to write your test in a spec.yaml:
-```yaml
 openapi: 3.0.0
 info:
   description: Example API
@@ -107,4 +90,3 @@ paths:
                 email: mark@gmail.com
               after: |
                 assert.equal(res.body.name, "Andy")
-```
