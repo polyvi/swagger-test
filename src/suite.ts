@@ -40,7 +40,7 @@ const handlePath = (pathBody, path) =>
         handleRawPath
     )(pathBody)
 
-const path2identifier = path => R.replace(/[/{}]/g, '_', path)
+const path2identifier = path => R.replace(/[/{}?=]/g, '_', path)
 
 const suiteBody2string = (path, xTests) =>
     R.reduce(
