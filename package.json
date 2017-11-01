@@ -1,6 +1,6 @@
 {
   "name": "swagger-test",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "autogenerate mocha-tests from a swagger spec",
   "main": "dist/src/app.js",
   "scripts": {
