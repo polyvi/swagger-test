@@ -1,0 +1,29 @@
+get:
+  operationId: userList
+  description: "get user list"
+  parameters:
+    - in: query
+      name: pageIndex
+      schema:
+        type: integer
+        format: int32
+    - in: query
+      name: pageSize
+      schema:
+        type: integer
+        format: int32
+  responses:
+    '200':
+      description: return user list
+      content:
+        application/json:
+          schema:
+            - type: object
+# x-test at here declare a single testcase:
+      x-test:
+        # 'getUserList' is the name of this testcase:  
+        getUserList:
+          parameters:
+            page_index: 1
+            page_size: 20
+

@@ -4,28 +4,20 @@ import { compile } from './spec'
 
 import * as request from 'request-promise-native'
 
-const YAML = require('yamljs')
+const $RefParser = require('json-schema-ref-parser')
+var parser = new $RefParser()
 
 program
     .version('0.0.1')
-    .option('-a,--api <value>', 'Url of spec-host')
-    .option('-f --file <value>', 'Local file path')
+    .option('-a,--api <value>', 'Url of spec-host or a local file path')
     .option('-s,--server <value>', 'Root url of api-server')
     .parse(process.argv)
 
 if (program.api) {
-    console.log('Use Remote File.')
-    request(program.api)
-        .then(spec => {
-            compile(YAML.parse(spec), program.server)
+    parser.dereference(program.api)
+        .then(function (spec) {
+            compile(spec, program.server)
         })
-        .catch(err => {
-            console.log(err)
-        })
-} else if (program.file) {
-    console.log('Use Local File.', program.file)
-    fs.readFile(program.file, 'utf8', (err, spec) => {
-        compile(YAML.parse(spec), program.server)
-    })
+        .catch(console.log)
 } else
     console.log('No Arguments.')

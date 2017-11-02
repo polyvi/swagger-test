@@ -1,15 +1,16 @@
 {
   "name": "swagger-test",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "autogenerate mocha-tests from a swagger spec",
   "main": "dist/src/app.js",
   "scripts": {
     "watch": "tsc -w",
     "test": "DEBUG=* DEBUG_DEPTH=null mocha -u tdd --timeout 999999 --colors ./dist/test --recursive",
     "apitest": "tsc && mocha ./dist/apitest --recursive",
-    "apitest-debug": "DEBUG=* DEBUG_DEPTH=null mocha ./dist/apitest --recursive"
+    "apitest-debug": "DEBUG=* DEBUG_DEPTH=null mocha ./dist/apitest --recursive",
+    "app-test": "rm -rf ./apitest/*.test.ts && DEBUG=* DEBUG_DEPTH=null node ./dist/src/app.js -a './test/spec/sample.yml' -s 'http://localhost:8080/api/v1'"
   },
-  "author": "",
+  "author": "Mark Feng",
   "license": "MIT",
   "dependencies": {
     "@types/assert": "0.0.31",
@@ -18,6 +19,7 @@
     "@types/ramda": "^0.24.13",
     "commander": "^2.11.0",
     "debug-trace-fn": "^0.1.1",
+    "json-schema-ref-parser": "^4.0.3",
     "mocha": "^3.5.0",
     "mocha-typescript": "^1.1.9",
     "moment": "^2.18.1",
@@ -25,7 +27,6 @@
     "request": "^2.82.0",
     "request-promise-native": "^1.0.5",
     "supertest": "^3.0.0",
-    "typescript": "^2.4.2",
-    "yamljs": "^0.3.0"
+    "typescript": "^2.4.2"
   }
 }

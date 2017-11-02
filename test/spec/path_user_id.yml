@@ -1,0 +1,27 @@
+put:
+  operationId: editUser
+  description: edit an user object
+  parameters:
+    - name: id
+      in: path
+      description: user_id
+      required: true
+      schema:
+        type: integer
+        format: int64
+  responses:
+    '200':
+      description: return an user object
+      x-test:
+        editUser:
+          headers: |
+            "Authorization": "Bearer " + token
+          before: |
+            console.log('just a test!')
+          uri-parameters: 
+            id: 1
+          body: 
+            name: mark
+            email: mark@gmail.com
+          after: |
+            assert.equal(res.body.name, "Andy")
