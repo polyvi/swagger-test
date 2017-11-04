@@ -1,7 +1,7 @@
 import * as assert from "assert"
 import { suite, test } from "mocha-typescript"
 
-import { parameters2queryString, xTest2url, replaceUrlParameters } from "../src/testcase"
+import { parameters2queryString, xTest2url, replaceUrlParameters, header2string } from "../src/testcase"
 
 @suite("api spec compiler tests")
 class CompilerTest {
@@ -26,5 +26,15 @@ class CompilerTest {
     @test("replaceUrlParameters")
     testReplaceUrlParameters() {
         assert.equal(replaceUrlParameters('/user/{id}', { id: 1 }), "/user/1")
+    }
+
+    @test("header2string")
+    testHeader2string() {
+        assert.equal(
+            header2string({
+                Authorization: "Bearer ${token}",
+                Foo: 123
+            }),
+            "\n\t\t\t.set(\"Authorization\",\`Bearer \${token}\`)\n\t\t\t.set(\"Foo\",\`123\`)")
     }
 }

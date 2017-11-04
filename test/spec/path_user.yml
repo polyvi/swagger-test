@@ -1,6 +1,5 @@
 get:
   operationId: userList
-  description: "get user list"
   parameters:
     - in: query
       name: pageIndex
@@ -14,7 +13,6 @@ get:
         format: int32
   responses:
     '200':
-      description: return user list
       content:
         application/json:
           schema:

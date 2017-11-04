@@ -1,7 +1,4 @@
 openapi: 3.0.0
-info:
-  description: Example API
-  version: 0.0.1
 #use a extention tag x-test on top level to declare some fixtures:
 x-test:
 # prop:['before']will be put to the front of every test files.
@@ -10,7 +7,6 @@ x-test:
 
         async function requestToken() {
             let res = await request.post("/user/login")
-                .type('json')
                 .send({
                     name: "Andy",
                     password: "12345678"

@@ -1,11 +1,8 @@
 import * as program from 'commander'
-import * as fs from 'fs'
 import { compile } from './spec'
 
-import * as request from 'request-promise-native'
-
 const $RefParser = require('json-schema-ref-parser')
-var parser = new $RefParser()
+const parser = new $RefParser()
 
 program
     .version('0.0.1')
